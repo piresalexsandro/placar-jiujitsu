@@ -1,5 +1,0 @@
-
-0
-java:S1220""Move this file to a named package.
-~
-java:S1157 "cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(Ð°Ãÿùÿÿÿÿ
