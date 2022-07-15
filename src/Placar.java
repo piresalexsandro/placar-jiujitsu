@@ -1,4 +1,3 @@
-import Utils.Loader;
 import model.Atleta;
 
 public class Placar {
@@ -9,10 +8,11 @@ public class Placar {
         atleta.setFaixa("preta ");
         atleta.setNome("Alexsandro Pires");
         atleta.setCpf("1234567809");
-        atleta.setPeso(90.0);
+        atleta.setPeso("90.0");
 
-        DadosFixos.loader();
-        String dados = ObterDadosDaCategoriaIdade.getCategoriaTempo(atleta.getAnoNascimento(), atleta.getFaixa());
-        System.out.println(dados);
+        Categoria categoria = ObterDadosDaCategoriaPorIdade.getCategoriaIdadeTempo(atleta);
+        categoria = ObterDadosDaCategoriaPorPeso.getCategoriaPeso(atleta, categoria);
+
+//        System.out.println(dados);
     }
 }

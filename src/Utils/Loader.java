@@ -4,6 +4,95 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Loader {
+
+
+    private static Map<String, String> faixa;
+    private static Map<String, String> categoriaIdade;
+    private static Map<String, String> categoriaTempo;
+    private static Map<String, String> pesoGalo;
+    private static Map<String, String> pesoPluma;
+    private static Map<String, String> pesoPena;
+    private static Map<String, String> pesoLeve;
+    private static Map<String, String> pesoMedio;
+    private static Map<String, String> pesoMeioPesado;
+    private static Map<String, String> pesoPesado;
+    private static Map<String, String> pesoSuperPesado;
+    private static Map<String, String> pesoPesadissimo;
+    private static Map<String, String> pesoExtraPesadissimo;
+
+
+
+    public Loader() {
+    }
+
+    public static Map<String, String> getFaixa() {
+        return faixa;
+    }
+
+    public static Map<String, String> getCategoriaIdade() {
+        return categoriaIdade;
+    }
+
+    public static Map<String, String> getCategoriaTempo() {
+        return categoriaTempo;
+    }
+
+    public static Map<String, String> getPesoGalo() {
+        return pesoGalo;
+    }
+
+    public static Map<String, String> getPesoPluma() {
+        return pesoPluma;
+    }
+
+    public static Map<String, String> getPesoPena() {
+        return pesoPena;
+    }
+
+    public static Map<String, String> getPesoLeve() {
+        return pesoLeve;
+    }
+
+    public static Map<String, String> getPesoMedio() {
+        return pesoMedio;
+    }
+
+    public static Map<String, String> getPesoMeioPesado() {
+        return pesoMeioPesado;
+    }
+
+    public static Map<String, String> getPesoPesado() {
+        return pesoPesado;
+    }
+
+    public static Map<String, String> getPesoSuperPesado() {
+        return pesoSuperPesado;
+    }
+
+    public static Map<String, String> getPesoPesadissimo() {
+        return pesoPesadissimo;
+    }
+
+    public static Map<String, String> getPesoExtraPesadissimo() {
+        return pesoExtraPesadissimo;
+    }
+
+    public static void carregar(){
+        faixa = Loader.carregaFaixa();
+        categoriaIdade = Loader.carregaCategoriaIdade();
+        categoriaTempo = Loader.carregarCategoriaTempo();
+        pesoGalo = Loader.carregaPesoGalo();
+        pesoPluma = Loader.carregaPluma();
+        pesoPena = Loader.carregaPena();
+        pesoLeve = Loader.carregaLeve();
+        pesoMedio = Loader.carregaMedio();
+        pesoMeioPesado = Loader.caregaMeioPesado();
+        pesoPesado = Loader.carregaPesado();
+        pesoSuperPesado = Loader.carregaSuperPesado();
+        pesoPesadissimo = Loader.carregaPesadissimo();
+        pesoExtraPesadissimo = Loader.carregaExtraPesadissimo();
+    }
+
     public static Map<String, String> carregaFaixa() {
         Map<String, String> fx = new HashMap<>();
         fx.put("BRANCA", "B");
@@ -18,9 +107,9 @@ public class Loader {
         return fx;
     }
 
-    public static Map<String, Map<String, String>> carregaCategoriaIdade() {
+    public static Map<String, String> carregaCategoriaIdade() {
         Map<String, String> categoria = new HashMap<>();
-        Map<String, Map<String, String>> principal = new HashMap<>();
+//        Map<String, Map<String, String>> principal = new HashMap<>();
 
         categoria.put("Pre Mirim", "P");
         categoria.put("Mirim", "M");
@@ -37,17 +126,17 @@ public class Loader {
         categoria.put("Master 5", "M5");
         categoria.put("Master 6", "M6");
 
-        principal.put("Pre Mirim", categoria);
-        principal.put("Mirim", categoria);
-        principal.put("Infantil A", categoria);
-        principal.put("Infantil B", categoria);
-        principal.put("Infanto Juvenil A", categoria);
-        principal.put("Infanto Juvenil B", categoria);
-        principal.put("Juvenil", categoria);
-        principal.put("Adulto", categoria);
-        principal.put("Master", categoria);
+//        principal.put("Pre Mirim", categoria);
+//        principal.put("Mirim", categoria);
+//        principal.put("Infantil A", categoria);
+//        principal.put("Infantil B", categoria);
+//        principal.put("Infanto Juvenil A", categoria);
+//        principal.put("Infanto Juvenil B", categoria);
+//        principal.put("Juvenil", categoria);
+//        principal.put("Adulto", categoria);
+//        principal.put("Master", categoria);
 
-        return principal;
+        return categoria;
     }
 
     public static Map<String, String> carregarCategoriaTempo(){

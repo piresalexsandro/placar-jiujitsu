@@ -3,13 +3,13 @@ public class Categoria {
 
     String categoriaIdade;
     String graducacao;
-    double peso;
+    String peso;
     String tempo;
 
     public Categoria() {
     }
 
-    public Categoria(String categoriaIdade, String graducacao, double peso, String tempo) {
+    public Categoria(String categoriaIdade, String graducacao, String peso, String tempo) {
         this.categoriaIdade = categoriaIdade;
         this.graducacao = graducacao;
         this.peso = peso;
@@ -32,11 +32,11 @@ public class Categoria {
         this.graducacao = graducacao;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 

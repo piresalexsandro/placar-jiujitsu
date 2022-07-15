@@ -6,7 +6,7 @@ public class Atleta {
     String cpf;
     int anoNascimento;
     String genero;
-    double peso;
+    String peso;
     String faixa;
 
     public String getNome() {
@@ -41,11 +41,11 @@ public class Atleta {
         this.genero = genero;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 

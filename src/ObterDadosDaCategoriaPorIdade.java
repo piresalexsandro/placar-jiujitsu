@@ -1,21 +1,25 @@
 import Utils.TempoDeLuta;
+import model.Atleta;
 import model.CategoriaPorIdade;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Map;
 
-public class ObterDadosDaCategoriaIdade {
+public class ObterDadosDaCategoriaPorIdade {
 
-    public static String getCategoriaTempo(int anoNascimento, String faixa){
-        var categoriaIdade = getCodigoCategoria(getIdade(anoNascimento));
-        var codigoFaixa = getCodigoFaixa(faixa);
+    public static Categoria getCategoriaIdadeTempo(Atleta atleta){
+        var categoriaIdade = getCodigoCategoria(getIdade(atleta.getAnoNascimento()));
+        var codigoFaixa = getCodigoFaixa(atleta.getFaixa().trim().toUpperCase());
         var categoriaGraduacao = categoriaIdade.getCodigo().concat(codigoFaixa);
-
         var tempo =  getTempoDeLuta(categoriaGraduacao);
-        return new Categoria(categoriaIdade.getNome(), faixa.trim().toUpperCase(), 99.9, tempo).toString();
+
+        return new Categoria(categoriaIdade.getNome(), atleta.getFaixa(), "", tempo);
     }
 
-    public static int getIdade(Integer anoNascimento){
+    private static int getIdade(Integer anoNascimento){
         SimpleDateFormat sdf  = new SimpleDateFormat("dd/MM/yyyy");
         Date date =  new Date(System.currentTimeMillis());
         Calendar calendar = new GregorianCalendar();
@@ -24,7 +28,7 @@ public class ObterDadosDaCategoriaIdade {
         return anoCorrente - anoNascimento;
     }
 
-    public static CategoriaPorIdade getCodigoCategoria(int idade){
+    private static CategoriaPorIdade getCodigoCategoria(int idade){
         String codigo = null;
         String nome = null;
         if(idade > 3) {
@@ -92,12 +96,13 @@ public class ObterDadosDaCategoriaIdade {
         return new CategoriaPorIdade(nome, codigo);
     }
 
-    public static String getTempoDeLuta(String codigoCategoriaFaixa){
+    private static String getTempoDeLuta(String codigoCategoriaFaixa){
         return TempoDeLuta.getTempo(codigoCategoriaFaixa);
     }
 
-    public static String getCodigoFaixa(String faixa){
+    private static String getCodigoFaixa(String faixa){
         String codigo = null;
+        Map<String, String> x = null;
         switch (faixa.trim().toUpperCase()){
             case "BRANCA":
             case "CINZA":
@@ -108,7 +113,8 @@ public class ObterDadosDaCategoriaIdade {
             case "ROXA":
             case "MARROM":
             case "PRETA":
-                codigo = FaixaEnum.getCodigoByFaixa(faixa);
+//                codigo = FaixaEnum.getCodigoByFaixa(faixa);
+                codigo = x.get(faixa);
                 break;
             default:
                 break;
