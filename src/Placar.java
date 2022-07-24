@@ -1,4 +1,5 @@
 import model.Atleta;
+import service.GetCategoryData;
 
 public class Placar {
     public static void main(String[] args) {
@@ -8,11 +9,10 @@ public class Placar {
         atleta.setFaixa("preta ");
         atleta.setNome("Alexsandro Pires");
         atleta.setCpf("1234567809");
-        atleta.setPeso("90.0");
+        atleta.setPeso(90.0);
+        atleta.setGenero("m");
 
-        Categoria categoria = ObterDadosDaCategoriaPorIdade.getCategoriaIdadeTempo(atleta);
-        categoria = ObterDadosDaCategoriaPorPeso.getCategoriaPeso(atleta, categoria);
-
-//        System.out.println(dados);
+        GetCategoryData getCategoryData = new GetCategoryData();
+        System.out.println(getCategoryData.formatDataCategory(atleta).toString());
     }
 }

@@ -6,8 +6,9 @@ public class Atleta {
     String cpf;
     int anoNascimento;
     String genero;
-    String peso;
+    double peso;
     String faixa;
+    Categoria categoria;
 
     public String getNome() {
         return nome;
@@ -41,11 +42,11 @@ public class Atleta {
         this.genero = genero;
     }
 
-    public String getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
@@ -55,5 +56,18 @@ public class Atleta {
 
     public void setFaixa(String faixa) {
         this.faixa = faixa;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return categoria.toString();
     }
 }

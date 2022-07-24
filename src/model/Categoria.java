@@ -1,20 +1,11 @@
+package model;
 
 public class Categoria {
 
     String categoriaIdade;
     String graducacao;
-    String peso;
+    String categoriaPeso;
     String tempo;
-
-    public Categoria() {
-    }
-
-    public Categoria(String categoriaIdade, String graducacao, String peso, String tempo) {
-        this.categoriaIdade = categoriaIdade;
-        this.graducacao = graducacao;
-        this.peso = peso;
-        this.tempo = tempo;
-    }
 
     public String getCategoriaIdade() {
         return categoriaIdade;
@@ -32,12 +23,12 @@ public class Categoria {
         this.graducacao = graducacao;
     }
 
-    public String getPeso() {
-        return peso;
+    public String getCategoriaPeso() {
+        return categoriaPeso;
     }
 
-    public void setPeso(String peso) {
-        this.peso = peso;
+    public void setCategoriaPeso(String categoriaPeso) {
+        this.categoriaPeso = categoriaPeso;
     }
 
     public String getTempo() {
@@ -50,6 +41,6 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return "Categoria: " + categoriaIdade + " - " +  graducacao + " - " +  peso + " - Tempo: " +  tempo;
+        return "Categoria: " + categoriaIdade + " - " +  graducacao.trim().toUpperCase() + " - " +  categoriaPeso + " - Time: " +  tempo;
     }
 }

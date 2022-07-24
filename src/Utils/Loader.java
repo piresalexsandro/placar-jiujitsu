@@ -5,111 +5,22 @@ import java.util.Map;
 
 public class Loader {
 
-
-    private static Map<String, String> faixa;
-    private static Map<String, String> categoriaIdade;
-    private static Map<String, String> categoriaTempo;
-    private static Map<String, String> pesoGalo;
-    private static Map<String, String> pesoPluma;
-    private static Map<String, String> pesoPena;
-    private static Map<String, String> pesoLeve;
-    private static Map<String, String> pesoMedio;
-    private static Map<String, String> pesoMeioPesado;
-    private static Map<String, String> pesoPesado;
-    private static Map<String, String> pesoSuperPesado;
-    private static Map<String, String> pesoPesadissimo;
-    private static Map<String, String> pesoExtraPesadissimo;
-
-
-
-    public Loader() {
+    public static Map<String, String> loadBelt() {
+        Map<String, String> belt = new HashMap<>();
+        belt.put("BRANCA", "B");
+        belt.put("CINZA", "C");
+        belt.put("AMARELA", "A");
+        belt.put("LARANJA", "L");
+        belt.put("VERDE", "V");
+        belt.put("AZUL", "A");
+        belt.put("ROXA", "R");
+        belt.put("MARROM", "M");
+        belt.put("PRETA", "P");
+        return belt;
     }
 
-    public static Map<String, String> getFaixa() {
-        return faixa;
-    }
-
-    public static Map<String, String> getCategoriaIdade() {
-        return categoriaIdade;
-    }
-
-    public static Map<String, String> getCategoriaTempo() {
-        return categoriaTempo;
-    }
-
-    public static Map<String, String> getPesoGalo() {
-        return pesoGalo;
-    }
-
-    public static Map<String, String> getPesoPluma() {
-        return pesoPluma;
-    }
-
-    public static Map<String, String> getPesoPena() {
-        return pesoPena;
-    }
-
-    public static Map<String, String> getPesoLeve() {
-        return pesoLeve;
-    }
-
-    public static Map<String, String> getPesoMedio() {
-        return pesoMedio;
-    }
-
-    public static Map<String, String> getPesoMeioPesado() {
-        return pesoMeioPesado;
-    }
-
-    public static Map<String, String> getPesoPesado() {
-        return pesoPesado;
-    }
-
-    public static Map<String, String> getPesoSuperPesado() {
-        return pesoSuperPesado;
-    }
-
-    public static Map<String, String> getPesoPesadissimo() {
-        return pesoPesadissimo;
-    }
-
-    public static Map<String, String> getPesoExtraPesadissimo() {
-        return pesoExtraPesadissimo;
-    }
-
-    public static void carregar(){
-        faixa = Loader.carregaFaixa();
-        categoriaIdade = Loader.carregaCategoriaIdade();
-        categoriaTempo = Loader.carregarCategoriaTempo();
-        pesoGalo = Loader.carregaPesoGalo();
-        pesoPluma = Loader.carregaPluma();
-        pesoPena = Loader.carregaPena();
-        pesoLeve = Loader.carregaLeve();
-        pesoMedio = Loader.carregaMedio();
-        pesoMeioPesado = Loader.caregaMeioPesado();
-        pesoPesado = Loader.carregaPesado();
-        pesoSuperPesado = Loader.carregaSuperPesado();
-        pesoPesadissimo = Loader.carregaPesadissimo();
-        pesoExtraPesadissimo = Loader.carregaExtraPesadissimo();
-    }
-
-    public static Map<String, String> carregaFaixa() {
-        Map<String, String> fx = new HashMap<>();
-        fx.put("BRANCA", "B");
-        fx.put("CINZA", "C");
-        fx.put("AMARELA", "A");
-        fx.put("LARANJA", "L");
-        fx.put("VERDE", "V");
-        fx.put("AZUL", "A");
-        fx.put("ROXA", "R");
-        fx.put("MARROM", "M");
-        fx.put("PRETA", "P");
-        return fx;
-    }
-
-    public static Map<String, String> carregaCategoriaIdade() {
+    public static Map<String, String> loadCategoryByAge() {
         Map<String, String> categoria = new HashMap<>();
-//        Map<String, Map<String, String>> principal = new HashMap<>();
 
         categoria.put("Pre Mirim", "P");
         categoria.put("Mirim", "M");
@@ -126,20 +37,10 @@ public class Loader {
         categoria.put("Master 5", "M5");
         categoria.put("Master 6", "M6");
 
-//        principal.put("Pre Mirim", categoria);
-//        principal.put("Mirim", categoria);
-//        principal.put("Infantil A", categoria);
-//        principal.put("Infantil B", categoria);
-//        principal.put("Infanto Juvenil A", categoria);
-//        principal.put("Infanto Juvenil B", categoria);
-//        principal.put("Juvenil", categoria);
-//        principal.put("Adulto", categoria);
-//        principal.put("Master", categoria);
-
         return categoria;
     }
 
-    public static Map<String, String> carregarCategoriaTempo(){
+    public static Map<String, String> loadTimeByCategory(){
         Map<String, String> categoriaTempo = new HashMap<>();
         categoriaTempo.put("PMB", "2:00");
         categoriaTempo.put("PMC", "2:00");
@@ -219,7 +120,7 @@ public class Loader {
     }
 
 
-    public static Map<String, String> carregaPesoGalo() {
+    public static Map<String, String> loadCategoryGalo() {
         Map<String, String> galo = new HashMap<>();
         galo.put("Pre Mirim", "Galo");
         galo.put("Mirim", "Galo");
@@ -238,7 +139,7 @@ public class Loader {
         return galo;
     }
 
-    public static Map<String, String> carregaPluma() {
+    public static Map<String, String> loadCategoryPluma() {
         Map<String, String> pluma = new HashMap<>();
         pluma.put("Mirim", "Pluma");
         pluma.put("Infantil A", "Pluma");
@@ -255,7 +156,7 @@ public class Loader {
         pluma.put("Master 6", "Pluma");
         return pluma;
     }
-    public static Map<String, String> carregaPena() {
+    public static Map<String, String> loadCategoryPena() {
         Map<String, String> pena = new HashMap<>();
         pena.put("Mirim", "Pena");
         pena.put("Infantil A", "Pena");
@@ -272,7 +173,7 @@ public class Loader {
         pena.put("Master 6", "Pena");
         return pena;
     }
-    public static Map<String, String> carregaLeve() {
+    public static Map<String, String> loadCategoryLeve() {
         Map<String, String> leve = new HashMap<>();
         leve.put("Pre Mirim", "Leve");
         leve.put("Mirim", "Leve");
@@ -290,7 +191,7 @@ public class Loader {
         leve.put("Master 6", "Leve");
         return leve;
     }
-    public static Map<String, String> carregaMedio() {
+    public static Map<String, String> loadCategoryMedio() {
         Map<String, String> medio = new HashMap<>();
 
         medio.put("Pre Mirim", "Medio");
@@ -310,7 +211,7 @@ public class Loader {
         return medio;
     }
 
-    public static Map<String, String> caregaMeioPesado() {
+    public static Map<String, String> loadCategoryMeioPesado() {
         Map<String, String> meioPesado = new HashMap<>();
         meioPesado.put("Pre Mirim", "Meio Pesado");
         meioPesado.put("Mirim", "Meio Pesado");
@@ -329,7 +230,7 @@ public class Loader {
         return meioPesado;
     }
 
-    public static Map<String, String> carregaPesado() {
+    public static Map<String, String> loadCategoryPesado() {
         Map<String, String> pesado = new HashMap<>();
         pesado.put("Pre Mirim", "Pesado");
         pesado.put("Mirim", "Pesado");
@@ -348,7 +249,7 @@ public class Loader {
         return pesado;
     }
 
-    public static Map<String, String> carregaSuperPesado() {
+    public static Map<String, String> loadCategorySuperPesado() {
         Map<String, String> superPesado = new HashMap<>();
         superPesado.put("Pre Mirim", "Super Pesado");
         superPesado.put("Mirim", "Super Pesado");
@@ -367,7 +268,7 @@ public class Loader {
         return superPesado;
     }
 
-    public static Map<String, String> carregaPesadissimo() {
+    public static Map<String, String> loadCategoryPesadissimo() {
         Map<String, String> pesadissimo = new HashMap<>();
 
         pesadissimo.put("Pre Mirim", "Pesadissimo");
@@ -386,7 +287,7 @@ public class Loader {
         pesadissimo.put("Master 6", "Pesadissimo");
         return pesadissimo;
     }
-    public static Map<String, String> carregaExtraPesadissimo() {
+    public static Map<String, String> loadCategoryExtraPesadissimo() {
         Map<String, String> extraPesadissimo = new HashMap<>();
         extraPesadissimo.put("Pre Mirim", "Extra Pesadissimo");
         extraPesadissimo.put("Mirim", "Extra Pesadissimo");
@@ -404,165 +305,4 @@ public class Loader {
         extraPesadissimo.put("Master 6", "Extra Pesadissimo");
         return extraPesadissimo;
     }
-
-
-//    public static Map<String, String> carregaCategoriaPeso() {
-//        Map<String, String> peso = new HashMap<>();
-//        peso.put("Pre Mirim", "Galo");
-//        peso.put("Pre Mirim", "Pluma");
-//        peso.put("Pre Mirim", "Pena");
-//        peso.put("Pre Mirim", "Leve");
-//        peso.put("Pre Mirim", "Medio");
-//        peso.put("Pre Mirim", "Meio Pesado");
-//        peso.put("Pre Mirim", "Pesado");
-//        peso.put("Pre Mirim", "Super Pesado");
-//        peso.put("Pre Mirim", "Pesadissimo");
-//        peso.put("Pre Mirim", "Extra Pesadissimo");
-//
-//        peso.put("Mirim", "Galo");
-//        peso.put("Mirim", "Pluma");
-//        peso.put("Mirim", "Pena");
-//        peso.put("Mirim", "Leve");
-//        peso.put("Mirim", "Medio");
-//        peso.put("Mirim", "Meio Pesado");
-//        peso.put("Mirim", "Pesado");
-//        peso.put("Mirim", "Super Pesado");
-//        peso.put("Mirim", "Pesadissimo");
-//        peso.put("Mirim", "Extra Pesadissimo");
-//
-//        peso.put("Infantil A", "Galo");
-//        peso.put("Infantil A", "Pluma");
-//        peso.put("Infantil A", "Pena");
-//        peso.put("Infantil A", "Leve");
-//        peso.put("Infantil A", "Medio");
-//        peso.put("Infantil A", "Meio Pesado");
-//        peso.put("Infantil A", "Pesado");
-//        peso.put("Infantil A", "Super Pesado");
-//        peso.put("Infantil A", "Pesadissimo");
-//        peso.put("Infantil A", "Extra Pesadissimo");
-//
-//        peso.put("Infantil B", "Galo");
-//        peso.put("Infantil B", "Pluma");
-//        peso.put("Infantil B", "Pena");
-//        peso.put("Infantil B", "Leve");
-//        peso.put("Infantil B", "Medio");
-//        peso.put("Infantil B", "Meio Pesado");
-//        peso.put("Infantil B", "Pesado");
-//        peso.put("Infantil B", "Super Pesado");
-//        peso.put("Infantil B", "Pesadissimo");
-//        peso.put("Infantil B", "Extra Pesadissimo");
-//
-//        peso.put("Infanto Juvenil A", "Galo");
-//        peso.put("Infanto Juvenil A", "Pluma");
-//        peso.put("Infanto Juvenil A", "Pena");
-//        peso.put("Infanto Juvenil A", "Leve");
-//        peso.put("Infanto Juvenil A", "Medio");
-//        peso.put("Infanto Juvenil A", "Meio Pesado");
-//        peso.put("Infanto Juvenil A", "Pesado");
-//        peso.put("Infanto Juvenil A", "Super Pesado");
-//        peso.put("Infanto Juvenil A", "Pesadissimo");
-//        peso.put("Infanto Juvenil A", "Extra Pesadissimo");
-//
-//        peso.put("Infanto Juvenil B", "Galo");
-//        peso.put("Infanto Juvenil B", "Pluma");
-//        peso.put("Infanto Juvenil B", "Pena");
-//        peso.put("Infanto Juvenil B", "Leve");
-//        peso.put("Infanto Juvenil B", "Medio");
-//        peso.put("Infanto Juvenil B", "Meio Pesado");
-//        peso.put("Infanto Juvenil B", "Pesado");
-//        peso.put("Infanto Juvenil B", "Super Pesado");
-//        peso.put("Infanto Juvenil B", "Pesadissimo");
-//        peso.put("Infanto Juvenil B", "Extra Pesadissimo");
-//
-//
-//        peso.put("Juvenil", "Galo");
-//        peso.put("Juvenil", "Pluma");
-//        peso.put("Juvenil", "Pena");
-//        peso.put("Juvenil", "Leve");
-//        peso.put("Juvenil", "Medio");
-//        peso.put("Juvenil", "Meio Pesado");
-//        peso.put("Juvenil", "Pesado");
-//        peso.put("Juvenil", "Super Pesado");
-//        peso.put("Juvenil", "Pesadissimo");
-//        peso.put("Juvenil", "Extra Pesadissimo");
-//
-//        peso.put("Adulto", "Galo");
-//        peso.put("Adulto", "Pluma");
-//        peso.put("Adulto", "Pena");
-//        peso.put("Adulto", "Leve");
-//        peso.put("Adulto", "Medio");
-//        peso.put("Adulto", "Meio Pesado");
-//        peso.put("Adulto", "Pesado");
-//        peso.put("Adulto", "Super Pesado");
-//        peso.put("Adulto", "Pesadissimo");
-//        peso.put("Adulto", "Extra Pesadissimo");
-//
-//        peso.put("Master 1", "Galo");
-//        peso.put("Master 1", "Pluma");
-//        peso.put("Master 1", "Pena");
-//        peso.put("Master 1", "Leve");
-//        peso.put("Master 1", "Medio");
-//        peso.put("Master 1", "Meio Pesado");
-//        peso.put("Master 1", "Pesado");
-//        peso.put("Master 1", "Super Pesado");
-//        peso.put("Master 1", "Pesadissimo");
-//        peso.put("Master 1", "Extra Pesadissimo");
-//
-//        peso.put("Master 2", "Galo");
-//        peso.put("Master 2", "Pluma");
-//        peso.put("Master 2", "Pena");
-//        peso.put("Master 2", "Leve");
-//        peso.put("Master 2", "Medio");
-//        peso.put("Master 2", "Meio Pesado");
-//        peso.put("Master 2", "Pesado");
-//        peso.put("Master 2", "Super Pesado");
-//        peso.put("Master 2", "Pesadissimo");
-//        peso.put("Master 2", "Extra Pesadissimo");
-//
-//        peso.put("Master 3", "Galo");
-//        peso.put("Master 3", "Pluma");
-//        peso.put("Master 3", "Pena");
-//        peso.put("Master 3", "Leve");
-//        peso.put("Master 3", "Medio");
-//        peso.put("Master 3", "Meio Pesado");
-//        peso.put("Master 3", "Pesado");
-//        peso.put("Master 3", "Super Pesado");
-//        peso.put("Master 3", "Pesadissimo");
-//        peso.put("Master 3", "Extra Pesadissimo");
-//
-//        peso.put("Master 4", "Galo");
-//        peso.put("Master 4", "Pluma");
-//        peso.put("Master 4", "Pena");
-//        peso.put("Master 4", "Leve");
-//        peso.put("Master 4", "Medio");
-//        peso.put("Master 4", "Meio Pesado");
-//        peso.put("Master 4", "Pesado");
-//        peso.put("Master 4", "Super Pesado");
-//        peso.put("Master 4", "Pesadissimo");
-//        peso.put("Master 4", "Extra Pesadissimo");
-//
-//        peso.put("Master 5", "Galo");
-//        peso.put("Master 5", "Pluma");
-//        peso.put("Master 5", "Pena");
-//        peso.put("Master 5", "Leve");
-//        peso.put("Master 5", "Medio");
-//        peso.put("Master 5", "Meio Pesado");
-//        peso.put("Master 5", "Pesado");
-//        peso.put("Master 5", "Super Pesado");
-//        peso.put("Master 5", "Pesadissimo");
-//        peso.put("Master 5", "Extra Pesadissimo");
-//
-//        peso.put("Master 6", "Galo");
-//        peso.put("Master 6", "Pluma");
-//        peso.put("Master 6", "Pena");
-//        peso.put("Master 6", "Leve");
-//        peso.put("Master 6", "Medio");
-//        peso.put("Master 6", "Meio Pesado");
-//        peso.put("Master 6", "Pesado");
-//        peso.put("Master 6", "Super Pesado");
-//        peso.put("Master 6", "Pesadissimo");
-//        peso.put("Master 6", "Extra Pesadissimo");
-//
-//        return peso;
-//    }
 }
